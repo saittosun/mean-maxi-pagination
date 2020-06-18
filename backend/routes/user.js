@@ -53,16 +53,17 @@ router.post("/login", (req, res, next) => {
     }, 'secret_this_should_be_longer', {
       expiresIn: "1h"
     });
+    // console.log(token);
     res.status(200).json({
       token: token
     });
   })
   .catch(err => {
-    console.log(err);
+    // console.log(err);
     return res.status(401).json({
       message: 'auth failed!!!'
     });
-  })
+  });
 });
 
 module.exports = router;
